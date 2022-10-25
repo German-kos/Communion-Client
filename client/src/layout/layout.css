@@ -1,0 +1,14 @@
+.layout-container {
+  display: flex;
+  border-style: solid;
+  border-color: green;
+  border-width: 1px;
+  justify-content: center;
+}
+.layout {
+  width: 500px;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  justify-content: center;
+}

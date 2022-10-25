@@ -1,0 +1,25 @@
+.navbar {
+}
+
+.navbar-links {
+}
+
+.navbar-links_left,
+.navbar-links_right {
+  width: fit-content;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links_left {
+  float: left;
+}
+.navbar-links_right {
+  float: right;
+}
+
+.navbar-links_left a,
+.navbar-links_right a {
+  text-transform: uppercase;
+  color: white;
+}

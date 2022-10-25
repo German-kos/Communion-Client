@@ -1,13 +1,14 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import Layout from "../layout/Layout";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "layout/Layout";
 function Router() {
   return (
     <BrowserRouter>
-      <Route element={<Layout />}>
-        <Route index />
-      </Route>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
