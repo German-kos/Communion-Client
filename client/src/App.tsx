@@ -1,9 +1,10 @@
 import "./App.css";
+import Router from "./router/Router";
 
 function App() {
   return (
     <div className="gradient__bg">
-      <h1>Hello World</h1>
+      <Router />
     </div>
   );
 }
