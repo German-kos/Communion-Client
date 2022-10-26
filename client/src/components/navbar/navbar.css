@@ -1,4 +1,6 @@
 .navbar {
+  display: block;
+  height: 100px;
 }
 
 .navbar-links {
@@ -8,7 +10,9 @@
 .navbar-links_right {
   width: fit-content;
   display: flex;
-  gap: 20px;
+  gap: 30px;
+  font-size: 40px;
+  margin-top: 10px;
 }
 
 .navbar-links_left {
