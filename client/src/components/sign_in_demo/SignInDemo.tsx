@@ -4,6 +4,7 @@ import { IUser } from "interfaces/UserInterface";
 import React, { useState } from "react";
 import { signIn, signOut } from "redux/slices/UserSlice";
 import store from "redux/store";
+import "components/sign_in_demo/signInDemo.css";
 
 function SignInDemo() {
   const [user, setUser] = useState<IUser>();
@@ -47,7 +48,7 @@ function SignInDemo() {
         <button type="submit">Sign In</button>
       </form>
       <button onClick={() => store.dispatch(signOut())}>Sign Out</button>
-      <div>
+      <div className="demo">
         <h1>Current User</h1>
         <p>ID: {user?.Id}</p>
         <p>Username: {user?.Username}</p>

@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import Backdrop from "components/backdrop/Backdrop";
+import { useState } from "react";
+import { IModal } from "interfaces/ModalInterface";
+import store from "redux/store";
+import "components/modal/modal.css";
 
 const dropIn = {
   hidden: {
@@ -7,12 +11,12 @@ const dropIn = {
     opacity: 0,
   },
   visible: {
-    y: 0,
+    y: "0",
     opacity: 1,
     transition: {
       duration: 0.1,
       type: "spring",
-      damping: 25,
+      damping: 20,
       stifness: 500,
     },
   },
@@ -22,9 +26,11 @@ const dropIn = {
   },
 };
 
-function Modal({ handleClose, text }: any) {
+// const [modalOpen, setModalOpen] = useState<boolean>();
+// store.subscribe(() => setModalOpen(store.getState().rootReducer.modal.open));
+function Modal({ handleClose, component }: any) {
   return (
-    <Backdrop onClick={handleClose}>
+    <Backdrop onClick={() => handleClose()}>
       <motion.div
         onClick={(e) => e.stopPropagation()}
         className="modal"
@@ -32,7 +38,9 @@ function Modal({ handleClose, text }: any) {
         initial="hidden"
         animate="visible"
         exit="exit"
-      ></motion.div>
+      >
+        {component}
+      </motion.div>
     </Backdrop>
   );
 }
