@@ -2,12 +2,13 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "layout/Layout";
 import UserTest from "components/user test/UserTest";
+import SignInDemo from "components/sign in demo/SignInDemo";
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<UserTest />} />
+          <Route index element={<SignInDemo />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -4,7 +4,7 @@ import { RootState } from "redux/store";
 
 const initialState: IUser = {
   Id: undefined,
-  Username: "undefined",
+  Username: undefined,
   Name: undefined,
   Token: undefined, // later this should the jwt when a user logs in
 };
