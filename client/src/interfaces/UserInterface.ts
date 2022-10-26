@@ -1,4 +1,4 @@
-// barebones interface for a logged in user
+// barebone interface for a logged in user
 export interface IUser {
   Id?: number;
   Username?: string;
