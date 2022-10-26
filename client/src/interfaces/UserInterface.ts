@@ -3,5 +3,5 @@ export interface IUser {
   Id?: number;
   Username?: string;
   Name?: string;
-  token?: string;
+  Token?: string;
 }

@@ -15,7 +15,7 @@ function UserTest() {
       Id: num,
       Username: "Ayo",
       Name: "ye",
-      token: "none",
+      Token: "none",
     };
     store.dispatch(signIn(a));
   };
@@ -25,7 +25,7 @@ function UserTest() {
       <p>{user?.Id?.toString()}</p>
       <p>{user?.Username?.toString()}</p>
       <p>{user?.Name?.toString()}</p>
-      <p>{user?.token?.toString()}</p>
+      <p>{user?.Token?.toString()}</p>
       <button onClick={() => clickMe()}>press</button>
     </div>
   );
