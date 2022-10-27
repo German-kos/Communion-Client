@@ -1,5 +1,6 @@
 import "components/common/input/input.css";
 import { IInputComponent } from "interfaces/InputComponentInterface";
+import "components/sign_in_form/signInForm.css";
 
 function Input({ preset, placeholder, name }: IInputComponent) {
   return (

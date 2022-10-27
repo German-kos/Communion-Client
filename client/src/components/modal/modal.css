@@ -1,4 +1,4 @@
-.modal {
+/* .modal {
   width: clamp(50%, 700px, 90%);
   height: min(50%, 300px);
 
@@ -9,4 +9,14 @@
   flex-direction: column;
   align-items: center;
   background-color: white;
+} */
+
+.modal {
+  padding: 1rem 1rem;
+  /* From https://css.glass */
+  background: rgba(102, 252, 241, 0.02);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.5px);
+  -webkit-backdrop-filter: blur(9.5px);
 }
