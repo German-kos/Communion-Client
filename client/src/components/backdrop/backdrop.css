@@ -1,4 +1,5 @@
 .backdrop {
+  z-index: 2; /* this is to keep background elements to bleed into the backdrop layer*/
   position: absolute;
   top: 0;
   left: 0;
