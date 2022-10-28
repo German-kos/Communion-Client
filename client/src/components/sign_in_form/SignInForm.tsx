@@ -80,7 +80,7 @@ function SignInForm() {
         </div>
         <div className="sign_in_submit_container">
           <OutlinedButton
-            text="SIGN IN"
+            text="Sign In"
             preset={buttonPcPreset}
             type="submit"
           />

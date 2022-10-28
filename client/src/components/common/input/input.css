@@ -4,6 +4,9 @@
   border-style: none;
   font-family: var(--font-family);
   font-size: 18px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .customInput:focus {
   outline: none !important;

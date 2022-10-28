@@ -1,4 +1,5 @@
 import { stripBasename } from "@remix-run/router";
+import { wait } from "@testing-library/user-event/dist/utils";
 import Modal from "components/modal/Modal";
 import SignInForm from "components/sign_in_form/SignInForm";
 import SignUpForm from "components/sign_up_form/SignUpForm";
@@ -24,7 +25,7 @@ function ModalWrapper() {
   );
   return (
     <>
-      <AnimatePresence initial={false} exitBeforeEnter={true}>
+      <AnimatePresence initial={false} mode="wait">
         {signInOpen && (
           <Modal
             modalOpen={signInOpen}
@@ -34,7 +35,7 @@ function ModalWrapper() {
         )}
       </AnimatePresence>
 
-      <AnimatePresence initial={false} exitBeforeEnter={true}>
+      <AnimatePresence initial={false} mode="wait">
         {signUpOpen && (
           <Modal
             modalOpen={signUpOpen}

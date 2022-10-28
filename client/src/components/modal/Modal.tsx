@@ -35,6 +35,7 @@ function Modal({ handleClose, component }: any) {
       <motion.div
         onClick={(e) => e.stopPropagation()}
         className="modal"
+        transition={{ duration: 0.5 }}
         variants={dropIn}
         initial="hidden"
         animate="visible"
