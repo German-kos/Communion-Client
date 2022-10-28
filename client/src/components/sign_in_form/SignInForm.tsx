@@ -67,7 +67,7 @@ function SignInForm() {
 
           /* make a seperate component for a password field (with eye that shows/hides password) */
         })}
-        <div className="checkBoxSection">
+        <div className="sign_in_checkbox_container">
           <input type="checkbox" id="keepLogged" name="keepLogged" />
           <label htmlFor="keepLogged">Keep me signed in</label>
         </div>
