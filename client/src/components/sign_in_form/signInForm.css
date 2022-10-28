@@ -12,3 +12,10 @@
   color: white;
   gap: 5px;
 }
+
+.sign_in_title_container,
+.sign_in_submit_container {
+  display: flex;
+  justify-content: center;
+  color: white;
+}

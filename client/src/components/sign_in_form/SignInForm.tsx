@@ -7,6 +7,8 @@ import axios from "axios";
 import store from "redux/store";
 import { signIn } from "redux/slices/UserSlice";
 import { closeModal } from "redux/slices/ModalSlice";
+import OutlinedButton from "components/common/button/outlined_button/OutlinedButton";
+import { buttonPcPreset } from "presets/custom_button_presets/button_pc";
 
 function SignInForm() {
   const submitForm = async (event: React.SyntheticEvent) => {
@@ -50,6 +52,9 @@ function SignInForm() {
   return (
     <>
       <form className="signInForm" onSubmit={submitForm}>
+        <div className="sign_in_title_container">
+          <h1>SIGN IN</h1>
+        </div>
         {requiredFields.map((field) => {
           return (
             <Input
@@ -59,15 +64,21 @@ function SignInForm() {
               key={field}
             />
           );
-          {
-            /* make a seperate component for a password field (with eye that shows/hides password) */
-          }
+
+          /* make a seperate component for a password field (with eye that shows/hides password) */
         })}
         <div className="checkBoxSection">
           <input type="checkbox" id="keepLogged" name="keepLogged" />
           <label htmlFor="keepLogged">Keep me signed in</label>
         </div>
-        <input type="submit" /> {/* make a component for submit button */}
+        <div className="sign_in_submit_container">
+          <OutlinedButton
+            text="Sign In"
+            preset={buttonPcPreset}
+            type="submit"
+          />
+        </div>
+        {/* <input type="submit" /> make a component for submit button */}
       </form>
     </>
   );

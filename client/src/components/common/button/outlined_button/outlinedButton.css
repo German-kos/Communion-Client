@@ -1,0 +1,7 @@
+.outlinedButton {
+  background: none;
+  font-family: var(--font-family);
+  color: white;
+  border-radius: 8px;
+  border-color: #66fcf1;
+}
