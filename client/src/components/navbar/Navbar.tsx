@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import "components/navbar/navbar.css";
 import store from "redux/store";
 import { closeModal, openModal } from "redux/slices/ModalSlice";
+import { closeSignIn, openSignIn } from "redux/slices/SignInModalSlice";
 function Navbar() {
   const [signInOpen, setSignInOpen] = useState<boolean>();
 
-  store.subscribe(() => setSignInOpen(store.getState().rootReducer.modal.open));
+  store.subscribe(() =>
+    setSignInOpen(store.getState().rootReducer.signInModal.open)
+  );
 
-  const openSignIn = () => {
-    store.dispatch(openModal());
+  const openSignInModal = () => {
+    store.dispatch(openSignIn());
   };
-  const closeSignIn = () => {
-    store.dispatch(closeModal());
+  const closeSignInModal = () => {
+    store.dispatch(closeSignIn());
   };
 
   return (
@@ -23,7 +26,11 @@ function Navbar() {
         </div>
         <div className="navbar-links_right">
           <a>Sign Up</a>
-          <a onClick={() => (signInOpen ? closeSignIn() : openSignIn())}>
+          <a
+            onClick={() =>
+              signInOpen ? closeSignInModal() : openSignInModal()
+            }
+          >
             Sign In
           </a>
         </div>

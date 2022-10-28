@@ -12,6 +12,7 @@
 } */
 
 .modal {
+  z-index: 4;
   padding: 2rem 2rem;
   /* From https://css.glass */
   background: rgba(102, 252, 241, 0.02);
