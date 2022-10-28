@@ -50,7 +50,7 @@ function SignInForm() {
       });
   };
   return (
-    <>
+    <div className="sign_in_form_container">
       <form className="signInForm" onSubmit={submitForm}>
         <div className="sign_in_title_container">
           <h1>SIGN IN</h1>
@@ -80,7 +80,11 @@ function SignInForm() {
         </div>
         {/* <input type="submit" /> make a component for submit button */}
       </form>
-    </>
+      <div className="not_a_member_container">
+        <p>Not a member?</p>
+        <a className="sign_in_sign_up_link">Sign Up</a>
+      </div>
+    </div>
   );
 }
 
