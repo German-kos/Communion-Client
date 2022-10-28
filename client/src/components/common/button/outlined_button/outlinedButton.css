@@ -4,4 +4,11 @@
   color: white;
   border-radius: 8px;
   border-color: #66fcf1;
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+}
+.outlinedButton:hover {
+  background-color: #45a29e;
+  border-color: #45a29e;
+  transform: scale(1.05);
 }

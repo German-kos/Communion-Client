@@ -41,8 +41,10 @@
 .sign_in_sign_up_link {
   color: #66fcf1;
   text-decoration: underline;
+  transition: all 0.2s ease-in-out;
 }
 
 .sign_in_sign_up_link:hover {
   cursor: pointer;
+  transform: scale(1.2);
 }

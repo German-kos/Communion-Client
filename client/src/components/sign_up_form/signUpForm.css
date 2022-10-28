@@ -14,10 +14,12 @@
 .already_a_member_container a {
   color: #66fcf1;
   text-decoration: underline;
+  transition: all 0.2s ease-in-out;
 }
 
 .already_a_member_container a:hover {
   cursor: pointer;
+  transform: scale(1.2);
 }
 
 .sign_up_form_container {

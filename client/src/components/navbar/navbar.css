@@ -1,8 +1,20 @@
 .navbar {
   display: block;
   height: 100px;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
+.navbar a {
+  font-weight: bold;
+  transition: all 0.1s ease-in-out;
+  /* transition: color 0.2s ease-in-out !important; */
+}
+.navbar a:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  color: #66fcf1;
+}
 .navbar-links {
 }
 
