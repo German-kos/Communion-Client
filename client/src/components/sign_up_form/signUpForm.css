@@ -1,0 +1,24 @@
+.sign_up_title_container {
+  color: white;
+}
+
+.already_a_member_container {
+  margin-top: 1rem;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.already_a_member_container a {
+  color: #66fcf1;
+  text-decoration: underline;
+}
+
+.sign_up_form_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

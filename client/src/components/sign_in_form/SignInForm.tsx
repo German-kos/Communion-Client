@@ -9,8 +9,15 @@ import { signIn } from "redux/slices/UserSlice";
 import { closeModal } from "redux/slices/ModalSlice";
 import OutlinedButton from "components/common/button/outlined_button/OutlinedButton";
 import { buttonPcPreset } from "presets/custom_button_presets/button_pc";
+import { closeSignIn } from "redux/slices/SignInModalSlice";
+import { openSignUp } from "redux/slices/SignUpModalSlice";
 
 function SignInForm() {
+  const switchToSignUp = () => {
+    store.dispatch(closeSignIn());
+    store.dispatch(openSignUp());
+  };
+
   const submitForm = async (event: React.SyntheticEvent) => {
     event.preventDefault();
 
@@ -43,7 +50,7 @@ function SignInForm() {
           localStorage.setItem("currentUser", JSON.stringify(response.data));
 
         // here the spinner should end
-        store.dispatch(closeModal());
+        store.dispatch(closeSignIn());
       })
       .catch((error) => {
         console.log(error.response.data); // display this message to indicate login failed
@@ -51,7 +58,7 @@ function SignInForm() {
   };
   return (
     <div className="sign_in_form_container">
-      <form className="signInForm" onSubmit={submitForm}>
+      <form className="sign_in_form" onSubmit={submitForm}>
         <div className="sign_in_title_container">
           <h1>SIGN IN</h1>
         </div>
@@ -73,7 +80,7 @@ function SignInForm() {
         </div>
         <div className="sign_in_submit_container">
           <OutlinedButton
-            text="Sign In"
+            text="SIGN IN"
             preset={buttonPcPreset}
             type="submit"
           />
@@ -82,7 +89,9 @@ function SignInForm() {
       </form>
       <div className="not_a_member_container">
         <p>Not a member?</p>
-        <a className="sign_in_sign_up_link">Sign Up</a>
+        <a className="sign_in_sign_up_link" onClick={() => switchToSignUp()}>
+          Sign Up
+        </a>
       </div>
     </div>
   );

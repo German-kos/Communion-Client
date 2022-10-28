@@ -20,16 +20,14 @@ function App() {
   return (
     <div className="gradient__bg">
       <Router />
-      <AnimatePresence initial={false}>
-        {/* {signInOpen && (
+      {/* {signInOpen && (
           <Modal
             modalOpen={signInOpen}
             handleClose={closeSignIn}
             component={<SignInForm />}
           />
         )} */}
-        <ModalWrapper />
-      </AnimatePresence>
+      <ModalWrapper />
     </div>
   );
 }
