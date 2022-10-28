@@ -5,8 +5,16 @@ import { buttonPcPreset } from "presets/custom_button_presets/button_pc";
 import { inputPcPreset } from "presets/custom_input_presets/input_pc";
 import { requiredFields } from "presets/sign_up_presets/sign_up_requirements";
 import React from "react";
+import { openSignIn } from "redux/slices/SignInModalSlice";
+import { closeSignUp } from "redux/slices/SignUpModalSlice";
+import store from "redux/store";
 
 function SignUpForm() {
+  const switchToSignIn = () => {
+    store.dispatch(closeSignUp());
+    store.dispatch(openSignIn());
+  };
+
   const submitForm = async (event: React.SyntheticEvent) => {
     event.preventDefault();
   };
@@ -26,11 +34,11 @@ function SignUpForm() {
             />
           );
         })}
-        <OutlinedButton text="SIGN UP" preset={buttonPcPreset} type="submit" />
+        <OutlinedButton text="Sign Up" preset={buttonPcPreset} type="submit" />
       </form>
       <div className="already_a_member_container">
         <p>Already a member?</p>
-        <a>Sign In</a>
+        <a onClick={() => switchToSignIn()}>Sign In</a>
       </div>
     </div>
   );
