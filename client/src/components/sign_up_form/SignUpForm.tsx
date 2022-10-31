@@ -39,7 +39,8 @@ function SignUpForm() {
         name: formData.Name.value,
         email: formData.Email.value,
       },
-    }).then(() => {
+    }).then((response) => {
+      console.log(response.data);
       store.dispatch(closeSignUp());
       store.dispatch(openSignIn());
     });
