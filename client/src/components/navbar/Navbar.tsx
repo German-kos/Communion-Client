@@ -10,7 +10,10 @@ import {
   openSignInModal,
   openSignUpModal,
 } from "./helpers";
+import { IUser } from "interfaces/UserInterface";
+import UserLinks from "./UserLinks";
 function Navbar() {
+  const [user, setUser] = useState<IUser>();
   const [signInOpen, setSignInOpen] = useState<boolean>();
   const [signUpOpen, setSignUpOpen] = useState<boolean>();
 
@@ -20,15 +23,12 @@ function Navbar() {
   store.subscribe(() =>
     setSignUpOpen(store.getState().rootReducer.signUpModal.open)
   );
+  store.subscribe(() => setUser(store.getState().rootReducer.user));
 
-  return (
-    <div className="navbar">
-      <div className="navbar-links">
-        <div className="navbar-links_left">
-          <a>Home</a>
-          <a>About</a>
-        </div>
-        <div className="navbar-links_right">
+  const navbarLinks = () => {
+    if (!user) {
+      return (
+        <>
           <a
             onClick={() =>
               signInOpen ? closeSignInModal() : openSignInModal()
@@ -43,6 +43,36 @@ function Navbar() {
           >
             Sign Up
           </a>
+        </>
+      );
+    }
+    return <a>Sign Out</a>;
+  };
+
+  console.log(user);
+  return (
+    <div className="navbar">
+      <div className="navbar-links">
+        <div className="navbar-links_left">
+          <a>Home</a>
+          <a>About</a>
+        </div>
+        <div className="navbar-links_right">
+          {/* <a
+            onClick={() =>
+              signInOpen ? closeSignInModal() : openSignInModal()
+            }
+          >
+            Sign In
+          </a>
+          <a
+            onClick={() =>
+              signUpOpen ? closeSignUpModal() : openSignUpModal()
+            }
+          >
+            Sign Up
+          </a> */}
+          <UserLinks />
         </div>
       </div>
     </div>

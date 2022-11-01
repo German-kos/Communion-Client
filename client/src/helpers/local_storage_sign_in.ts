@@ -26,7 +26,6 @@ export const AutoSignIn = () => {
       },
     })
       .then((response) => {
-        console.log(response.data);
         const user: IUser = {
           Id: response.data.id,
           Username: response.data.username,

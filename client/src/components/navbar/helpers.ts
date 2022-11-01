@@ -1,3 +1,4 @@
+import { IUser } from "interfaces/UserInterface";
 import { closeSignIn, openSignIn } from "redux/slices/SignInModalSlice";
 import { closeSignUp, openSignUp } from "redux/slices/SignUpModalSlice";
 import store from "redux/store";
