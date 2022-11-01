@@ -4,6 +4,12 @@ import store from "redux/store";
 import { closeModal, openModal } from "redux/slices/ModalSlice";
 import { closeSignIn, openSignIn } from "redux/slices/SignInModalSlice";
 import { closeSignUp, openSignUp } from "redux/slices/SignUpModalSlice";
+import {
+  closeSignInModal,
+  closeSignUpModal,
+  openSignInModal,
+  openSignUpModal,
+} from "./helpers";
 function Navbar() {
   const [signInOpen, setSignInOpen] = useState<boolean>();
   const [signUpOpen, setSignUpOpen] = useState<boolean>();
@@ -15,19 +21,6 @@ function Navbar() {
     setSignUpOpen(store.getState().rootReducer.signUpModal.open)
   );
 
-  const openSignInModal = () => {
-    store.dispatch(openSignIn());
-  };
-  const closeSignInModal = () => {
-    store.dispatch(closeSignIn());
-  };
-
-  const openSignUpModal = () => {
-    store.dispatch(openSignUp());
-  };
-  const closeSignUpModal = () => {
-    store.dispatch(closeSignUp());
-  };
   return (
     <div className="navbar">
       <div className="navbar-links">

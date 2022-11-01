@@ -39,11 +39,15 @@ function SignUpForm() {
         name: formData.Name.value,
         email: formData.Email.value,
       },
-    }).then((response) => {
-      console.log(response.data);
-      store.dispatch(closeSignUp());
-      store.dispatch(openSignIn());
-    });
+    })
+      .then((response) => {
+        console.log(response.data);
+        store.dispatch(closeSignUp());
+        store.dispatch(openSignIn());
+      })
+      .catch((error) => {
+        console.log(error.response.data); // display this message to indicate login failed
+      });
   };
   return (
     <div className="sign_up_form_container">
