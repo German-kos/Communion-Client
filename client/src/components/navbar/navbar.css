@@ -3,6 +3,7 @@
   height: 100px;
   padding-right: 1rem;
   padding-left: 1rem;
+  align-items: center;
 }
 
 .navbar a {
@@ -38,4 +39,30 @@
 .navbar-links_right a {
   text-transform: uppercase;
   color: white;
+}
+
+.navbar_username {
+  color: white;
+}
+.navbar_username:hover {
+  cursor: default;
+}
+
+.navbar_avatar {
+  transition: all 0.1s ease-in-out;
+  border: 2px solid rgb(235, 233, 233);
+}
+.navbar_avatar:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.9);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.9);
+}
+
+.navbar_user_links_container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 30px;
 }

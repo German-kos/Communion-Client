@@ -10,6 +10,7 @@ import {
 } from "./helpers";
 import "components/navbar/navbar.css";
 import Avatar from "@mui/material/Avatar";
+import LoggedUserDisplay from "./LoggedUserDisplay";
 
 function UserLinks(userState: IUser) {
   const [user, setUser] = useState<IUser>();
@@ -48,7 +49,13 @@ function UserLinks(userState: IUser) {
         </>
       )}
       {user?.Username && (
-        <Avatar src={user.ProfilePicture} onClick={() => signOutUser()} />
+        <div className="navbar_user_links_container">
+          <LoggedUserDisplay
+            username={user.Username}
+            pfp={user.ProfilePicture}
+          />
+          <p className="navbar_username">{user.Username}</p>
+        </div>
       )}
       {/* {user?.Username && <a onClick={() => signOutUser()}>Sign Out</a>} */}
       {/* ^^^ should be changed to an avatar and a dropdown menu */}

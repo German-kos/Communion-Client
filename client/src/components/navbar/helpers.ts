@@ -1,6 +1,7 @@
 import { IUser } from "interfaces/UserInterface";
 import { closeSignIn, openSignIn } from "redux/slices/SignInModalSlice";
 import { closeSignUp, openSignUp } from "redux/slices/SignUpModalSlice";
+import { signOut } from "redux/slices/UserSlice";
 import store from "redux/store";
 
 export const openSignInModal = () => {
@@ -14,4 +15,7 @@ export const openSignUpModal = () => {
 };
 export const closeSignUpModal = () => {
   store.dispatch(closeSignUp());
+};
+export const signOutUser = () => {
+  store.dispatch(signOut());
 };

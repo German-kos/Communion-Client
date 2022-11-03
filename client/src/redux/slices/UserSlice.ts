@@ -28,6 +28,7 @@ export const userSlice = createSlice({
       state.Name = undefined;
       state.Token = undefined;
       state.ProfilePicture = undefined;
+      localStorage.removeItem("currentUser");
     },
   },
 });
