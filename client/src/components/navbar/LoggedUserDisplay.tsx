@@ -40,6 +40,7 @@ const LoggedUserDisplay = ({ username, pfp }: any) => {
       />
 
       <Menu
+        aria-orientation="vertical"
         anchorOrigin={{ vertical: 44, horizontal: -18.4 }}
         style={{ justifyContent: "flex-end" }}
         autoFocus={false}
@@ -51,7 +52,9 @@ const LoggedUserDisplay = ({ username, pfp }: any) => {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={() => navigate(`/profile/${username}`)}>
+          Profile
+        </MenuItem>
         <MenuItem onClick={signOut}>Logout</MenuItem>
       </Menu>
     </div>

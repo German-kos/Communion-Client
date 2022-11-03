@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "components/navbar/navbar.css";
 import store from "redux/store";
 import { closeModal, openModal } from "redux/slices/ModalSlice";
@@ -16,7 +16,10 @@ function Navbar() {
   const [user, setUser] = useState<IUser>();
   const [signInOpen, setSignInOpen] = useState<boolean>();
   const [signUpOpen, setSignUpOpen] = useState<boolean>();
-
+  // useEffect(() => {
+  //   console.log("state" + store.getState().rootReducer.user.Username);
+  //   setUser(store.getState().rootReducer.user);
+  // }, []);
   store.subscribe(() =>
     setSignInOpen(store.getState().rootReducer.signInModal.open)
   );
