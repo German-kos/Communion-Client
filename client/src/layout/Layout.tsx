@@ -22,10 +22,7 @@ function Layout() {
     <div className="layout-container">
       <div className="layout">
         <Navbar />
-        <Input placeholder="Username" preset={inputPcPreset} name="Username" />
-        <p>.</p> {/* remove when done with input  */}
         <Outlet />
-        <button onClick={() => testJwt()}>Test JWT</button>
       </div>
     </div>
   );
