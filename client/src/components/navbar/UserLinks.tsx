@@ -2,7 +2,6 @@ import { IUser } from "interfaces/UserInterface";
 import React, { useState } from "react";
 import { signOut } from "redux/slices/UserSlice";
 import store from "redux/store";
-import { Avatar } from "primereact/avatar";
 import {
   closeSignInModal,
   closeSignUpModal,
@@ -10,6 +9,7 @@ import {
   openSignUpModal,
 } from "./helpers";
 import "components/navbar/navbar.css";
+import Avatar from "@mui/material/Avatar";
 
 function UserLinks(userState: IUser) {
   const [user, setUser] = useState<IUser>();
@@ -48,12 +48,7 @@ function UserLinks(userState: IUser) {
         </>
       )}
       {user?.Username && (
-        <Avatar
-          className="navbar_avatar"
-          image={user.ProfilePicture}
-          size="normal"
-          onClick={() => signOutUser()}
-        />
+        <Avatar src={user.ProfilePicture} onClick={() => signOutUser()} />
       )}
       {/* {user?.Username && <a onClick={() => signOutUser()}>Sign Out</a>} */}
       {/* ^^^ should be changed to an avatar and a dropdown menu */}
