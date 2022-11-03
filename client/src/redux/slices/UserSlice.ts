@@ -8,6 +8,7 @@ const initialState: IUser = {
   Name: undefined,
   Token: undefined,
   ProfilePicture: undefined,
+  Remember: undefined,
 };
 
 export const userSlice = createSlice({
@@ -20,6 +21,8 @@ export const userSlice = createSlice({
       state.Name = action.payload.Name;
       state.Token = action.payload.Token;
       state.ProfilePicture = action.payload.ProfilePicture;
+      state.Remember = action.payload.Remember;
+      // localStorage.setItem("currentUser", JSON.stringify(state));
     },
     signOut: (state) => {
       // when a user logs out, the localstorage should be cleared of a user as well
@@ -28,6 +31,7 @@ export const userSlice = createSlice({
       state.Name = undefined;
       state.Token = undefined;
       state.ProfilePicture = undefined;
+      state.Remember = undefined;
       localStorage.removeItem("currentUser");
     },
   },

@@ -13,6 +13,7 @@ export const AutoSignIn = () => {
       Username: localUser.username,
       Name: localUser.name,
       Token: localUser.token,
+      Remember: localUser.remember,
     };
     axios({
       method: "post",
@@ -23,6 +24,7 @@ export const AutoSignIn = () => {
       },
       data: {
         username: user.Username,
+        remember: user.Remember,
       },
     })
       .then((response) => {
@@ -32,7 +34,9 @@ export const AutoSignIn = () => {
           Name: response.data.name,
           Token: response.data.token,
           ProfilePicture: response.data.profilePicture,
+          Remember: response.data.remember,
         };
+        localStorage.setItem("currentUser", JSON.stringify(response.data));
         store.dispatch(signIn(user));
       })
       .catch((error) => {

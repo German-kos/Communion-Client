@@ -3,4 +3,5 @@ export interface IUserLS {
   username: string;
   name: string;
   token: string;
+  remember: boolean;
 }

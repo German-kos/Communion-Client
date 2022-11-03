@@ -8,8 +8,11 @@ import store, { rootReducer } from "redux/store";
 import { useState } from "react";
 import { signOutUser } from "./helpers";
 import "components/navbar/navbar.css";
+import { useNavigate } from "react-router";
 
 const LoggedUserDisplay = ({ username, pfp }: any) => {
+  const navigate = useNavigate();
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: any) => {

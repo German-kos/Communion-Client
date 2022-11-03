@@ -33,22 +33,22 @@ function SignInForm() {
       data: {
         username: formData.Username.value,
         password: formData.Password.value,
+        remember: formData.keepLogged.checked,
       },
     })
       .then((response) => {
-        response.data &&
-          store.dispatch(
-            signIn({
-              Id: response.data.id,
-              Username: response.data.username,
-              Name: response.data.name,
-              Token: response.data.token,
-              ProfilePicture: response.data.profilePicture,
-            })
-          );
-
-        formData.keepLogged.checked &&
-          localStorage.setItem("currentUser", JSON.stringify(response.data));
+        response.data && console.log(response.data);
+        store.dispatch(
+          signIn({
+            Id: response.data.id,
+            Username: response.data.username,
+            Name: response.data.name,
+            Token: response.data.token,
+            ProfilePicture: response.data.profilePicture,
+            Remember: response.data.remember,
+          })
+        );
+        localStorage.setItem("currentUser", JSON.stringify(response.data));
 
         // here the spinner should end
         store.dispatch(closeSignIn());

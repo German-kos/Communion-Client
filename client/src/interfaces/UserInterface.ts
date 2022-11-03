@@ -5,4 +5,5 @@ export interface IUser {
   Name?: string;
   Token?: string;
   ProfilePicture?: string;
+  Remember?: boolean;
 }

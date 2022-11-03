@@ -24,7 +24,7 @@ function Navbar() {
     setSignUpOpen(store.getState().rootReducer.signUpModal.open)
   );
   store.subscribe(() => setUser(store.getState().rootReducer.user));
-
+  console.log(store.getState().rootReducer.user);
   const navbarLinks = () => {
     if (!user) {
       return (
