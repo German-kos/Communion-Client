@@ -6,7 +6,8 @@ const initialState: IUser = {
   Id: undefined,
   Username: undefined,
   Name: undefined,
-  Token: undefined, // later this should the jwt when a user logs in
+  Token: undefined,
+  ProfilePicture: undefined,
 };
 
 export const userSlice = createSlice({
@@ -18,6 +19,7 @@ export const userSlice = createSlice({
       state.Username = action.payload.Username;
       state.Name = action.payload.Name;
       state.Token = action.payload.Token;
+      state.ProfilePicture = action.payload.ProfilePicture;
     },
     signOut: (state) => {
       // when a user logs out, the localstorage should be cleared of a user as well
@@ -25,6 +27,7 @@ export const userSlice = createSlice({
       state.Username = undefined;
       state.Name = undefined;
       state.Token = undefined;
+      state.ProfilePicture = undefined;
     },
   },
 });

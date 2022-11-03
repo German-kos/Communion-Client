@@ -31,6 +31,7 @@ export const AutoSignIn = () => {
           Username: response.data.username,
           Name: response.data.name,
           Token: response.data.token,
+          ProfilePicture: response.data.profilePicture,
         };
         store.dispatch(signIn(user));
       })

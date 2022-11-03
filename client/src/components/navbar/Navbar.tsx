@@ -58,20 +58,6 @@ function Navbar() {
           <a>About</a>
         </div>
         <div className="navbar-links_right">
-          {/* <a
-            onClick={() =>
-              signInOpen ? closeSignInModal() : openSignInModal()
-            }
-          >
-            Sign In
-          </a>
-          <a
-            onClick={() =>
-              signUpOpen ? closeSignUpModal() : openSignUpModal()
-            }
-          >
-            Sign Up
-          </a> */}
           <UserLinks />
         </div>
       </div>

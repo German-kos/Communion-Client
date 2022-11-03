@@ -4,4 +4,5 @@ export interface IUser {
   Username?: string;
   Name?: string;
   Token?: string;
+  ProfilePicture?: string;
 }
