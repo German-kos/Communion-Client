@@ -1,0 +1,23 @@
+.profile_user_avatar {
+  border: 2px solid gray;
+
+  -webkit-box-shadow: 0px 0px 19px 0px rgba(69, 162, 157, 0.9);
+  -moz-box-shadow: 0px 0px 19px 0px rgba(69, 162, 157, 0.9);
+  box-shadow: 0px 0px 19px 0px rgba(69, 162, 157, 0.9);
+}
+.profile_username {
+  color: white;
+  font-size: 50px;
+  font-weight: bolder;
+}
+.profile_name {
+  color: rgb(131, 131, 131);
+  font-size: 25px;
+}
+
+.profile_user_display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -52,7 +52,12 @@ const LoggedUserDisplay = ({ username, pfp }: any) => {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={() => navigate(`/profile/${username}`)}>
+        <MenuItem
+          onClick={() =>
+            // later redirect to a seperate component named MyProfile, where the user can edit their account
+            navigate(`/profile/${username}`, {})
+          }
+        >
           Profile
         </MenuItem>
         <MenuItem onClick={signOut}>Logout</MenuItem>
