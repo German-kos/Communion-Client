@@ -10,6 +10,9 @@ import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
 import { IconButton } from "@mui/material";
 import { IUser } from "interfaces/UserInterface";
 import axios from "axios";
+import { IUserLS } from "interfaces/LocalStorageUserInterface";
+import store from "redux/store";
+import { changePfp } from "redux/slices/UserSlice";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -42,29 +45,71 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 function MyProfileUserDisplay({ user }: any) {
   // const [file, setFile] = useState<string | Blob>();
+  const [pfp, setPfp] = useState<string>();
 
+  store.subscribe(() =>
+    setPfp(store.getState().rootReducer.user.ProfilePicture)
+  );
   const handleUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    console.log(event.target.files?.item(0));
     const userJson = localStorage.getItem("currentUser");
     if (userJson) {
-      let currentUser = JSON.parse(userJson);
-      // console.log(currentUser);
-      let file = event.target.files?.item(0);
-      let formdata = new FormData();
-      if (file) {
-        formdata.append("File", file);
-        formdata.append("Username", currentUser.username);
+      const localUser: IUserLS = JSON.parse(userJson) as IUserLS;
+      const userInfo: IUser = {
+        Id: localUser.id,
+        Username: localUser.username,
+        Name: localUser.name,
+        Token: localUser.token,
+        Remember: localUser.remember,
+      };
+
+      const data = event.target.files?.item(0);
+      const formData = new FormData();
+      if (data && userInfo.Username !== undefined) {
+        formData.append("file", data);
+        formData.append("User", userInfo.Username);
         await axios({
           method: "post",
           url: "https://localhost:7066/api/account/upload-pfp",
-          data: formdata,
-          headers: { "Content-Type": "multipart/form-data" },
-        }).catch((error) => {
-          console.log(error);
-        });
+          data: formData,
+          headers: {
+            Authorization: `bearer ${userInfo.Token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        })
+          .then((res) => {
+            console.log(res);
+            store.dispatch(changePfp(res.data.url));
+          })
+          .catch((err) => console.log(err.message));
       }
+
+      console.log(formData);
+      // axios.post(
+      //   "https://localhost:7066/api/account/upload-pfp-test",
+      //   formData
+      // );
     }
+    // event.preventDefault();
+    // console.log(event.target.files?.item(0));
+    // const userJson = localStorage.getItem("currentUser");
+    // if (userJson) {
+    //   let currentUser = JSON.parse(userJson);
+    //   // console.log(currentUser);
+    //   let file = event.target.files?.item(0);
+    //   let formdata = new FormData();
+    //   if (file) {
+    //     formdata.append("File", file);
+    //     formdata.append("Username", currentUser.username);
+    //     await axios({
+    //       method: "post",
+    //       url: "https://localhost:7066/api/account/upload-pfp-test",
+    //       data: formdata,
+    //       headers: { "Content-Type": "multipart/form-data" },
+    //     }).catch((error) => {
+    //       console.log(error);
+    //     });
+    //   }
+    // }
   };
   return (
     <div className="my_profile_user_display">
@@ -92,7 +137,7 @@ function MyProfileUserDisplay({ user }: any) {
             sx={AvatarPresets}
             className="my_profile_user_avatar"
             alt={user?.Username}
-            src={user?.ProfilePicture}
+            src={pfp}
           />
         </StyledBadge>
       </Badge>

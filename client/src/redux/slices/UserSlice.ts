@@ -34,10 +34,13 @@ export const userSlice = createSlice({
       state.Remember = undefined;
       localStorage.removeItem("currentUser");
     },
+    changePfp: (state, action: PayloadAction<string>) => {
+      state.ProfilePicture = action.payload;
+    },
   },
 });
 
-export const { signIn, signOut } = userSlice.actions;
+export const { signIn, signOut, changePfp } = userSlice.actions;
 
 export const SelectUser = (state: RootState) => state.rootReducer.user;
 
