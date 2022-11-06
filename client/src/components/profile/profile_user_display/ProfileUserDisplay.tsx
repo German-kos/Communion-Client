@@ -1,6 +1,6 @@
 import Avatar from "@mui/material/Avatar";
 import "components/profile/profile_user_display/profileUserDisplay.css";
-import { AvatarPresets } from "presets/mui_avatar_presets/mui_avatar_presets_pc";
+import { AvatarPresets } from "presets/mui_avatar_presets/mui_avatar_pc";
 function ProfileUserDisplay({ userProfile }: any) {
   console.log(userProfile);
   return (

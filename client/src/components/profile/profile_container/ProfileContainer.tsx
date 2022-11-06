@@ -6,12 +6,7 @@ import { useParams } from "react-router";
 import axios from "axios";
 import { IUserDetails } from "interfaces/UserDetailsInterface";
 import ProfileUserInformation from "../profile_user_information/ProfileUserInformation";
-
-const dividerStyle = {
-  width: "1000px",
-  maxWidth: 360,
-  bgcolor: "background.paper",
-};
+import { DividerStyle } from "presets/mui_profile_divider_presets/mui_divider_profile_divider_pc";
 
 function ProfileContainer() {
   const [userProfile, setUserProfile] = useState<IUserDetails>();
@@ -44,7 +39,7 @@ function ProfileContainer() {
   return (
     <div className="profile_container">
       <ProfileUserDisplay userProfile={userProfile} />
-      <Divider sx={dividerStyle} />
+      <Divider sx={DividerStyle} />
       <ProfileUserInformation userProfile={userProfile} />
     </div>
   );
