@@ -4,6 +4,7 @@ import Layout from "layout/Layout";
 import UserTest from "components/user test/UserTest";
 import SignInDemo from "components/sign_in_demo/SignInDemo";
 import ProfilePage from "pages/profile/ProfilePage";
+import MyProfilePage from "pages/my_profile/MyProfilePage";
 function Router() {
   return (
     <BrowserRouter>
@@ -11,6 +12,7 @@ function Router() {
         <Route element={<Layout />}>
           <Route index element={<SignInDemo />} />
           <Route path="/profile/:username" element={<ProfilePage />} />
+          <Route path="/myprofile" element={<MyProfilePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
