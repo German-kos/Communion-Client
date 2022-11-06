@@ -16,10 +16,7 @@ function Navbar() {
   const [user, setUser] = useState<IUser>();
   const [signInOpen, setSignInOpen] = useState<boolean>();
   const [signUpOpen, setSignUpOpen] = useState<boolean>();
-  // useEffect(() => {
-  //   console.log("state" + store.getState().rootReducer.user.Username);
-  //   setUser(store.getState().rootReducer.user);
-  // }, []);
+
   store.subscribe(() =>
     setSignInOpen(store.getState().rootReducer.signInModal.open)
   );
@@ -27,7 +24,6 @@ function Navbar() {
     setSignUpOpen(store.getState().rootReducer.signUpModal.open)
   );
   store.subscribe(() => setUser(store.getState().rootReducer.user));
-  console.log(store.getState().rootReducer.user);
   const navbarLinks = () => {
     if (!user) {
       return (
@@ -52,7 +48,6 @@ function Navbar() {
     return <a>Sign Out</a>;
   };
 
-  console.log(user);
   return (
     <div className="navbar">
       <div className="navbar-links">

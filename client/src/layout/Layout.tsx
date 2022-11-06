@@ -22,7 +22,9 @@ function Layout() {
     <div className="layout-container">
       <div className="layout">
         <Navbar />
-        <Outlet />
+        <div className="layout_outlet_container">
+          <Outlet />
+        </div>
       </div>
     </div>
   );
