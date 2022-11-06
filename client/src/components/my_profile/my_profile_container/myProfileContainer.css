@@ -1,0 +1,7 @@
+.my_profile_container {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
