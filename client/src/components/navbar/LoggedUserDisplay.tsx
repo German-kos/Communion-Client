@@ -1,11 +1,7 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
-import { IUser } from "interfaces/UserInterface";
-import store, { rootReducer } from "redux/store";
-import { useState } from "react";
 import { signOutUser } from "./helpers";
 import "components/navbar/navbar.css";
 import { useNavigate } from "react-router";
@@ -55,7 +51,7 @@ const LoggedUserDisplay = ({ username, pfp }: any) => {
         <MenuItem
           onClick={() =>
             // later redirect to a seperate component named MyProfile, where the user can edit their account
-            navigate(`/profile/${username}`, {})
+            navigate(`/myprofile`, {})
           }
         >
           Profile

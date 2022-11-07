@@ -25,9 +25,6 @@ function UserLinks(userState: IUser) {
   );
   store.subscribe(() => setUser(store.getState().rootReducer.user));
 
-  const signOutUser = () => {
-    store.dispatch(signOut());
-  };
   return (
     <>
       {!user?.Username && (
@@ -57,8 +54,6 @@ function UserLinks(userState: IUser) {
           <p className="navbar_username">{user.Username}</p>
         </div>
       )}
-      {/* {user?.Username && <a onClick={() => signOutUser()}>Sign Out</a>} */}
-      {/* ^^^ should be changed to an avatar and a dropdown menu */}
     </>
   );
 }

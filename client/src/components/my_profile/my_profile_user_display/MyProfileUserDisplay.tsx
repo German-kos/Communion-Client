@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "components/my_profile/my_profile_user_display/myProfileUserDisplay.css";
-import { IUserDetails } from "interfaces/UserDetailsInterface";
 import { AvatarPresets } from "presets/mui_avatar_presets/mui_avatar_pc";
 import { styled } from "@mui/material/styles";
 import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
 import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
 import { IconButton } from "@mui/material";
 import { IUser } from "interfaces/UserInterface";
@@ -44,12 +42,16 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 function MyProfileUserDisplay({ user }: any) {
-  // const [file, setFile] = useState<string | Blob>();
   const [pfp, setPfp] = useState<string>();
+  const pfpJson = localStorage.getItem("currentUser");
+  useEffect(() => {
+    if (pfpJson) setPfp(JSON.parse(pfpJson).profilePicture);
+  }, []);
 
   store.subscribe(() =>
     setPfp(store.getState().rootReducer.user.ProfilePicture)
   );
+
   const handleUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const userJson = localStorage.getItem("currentUser");
     if (userJson) {

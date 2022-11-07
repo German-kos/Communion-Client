@@ -12,10 +12,12 @@ import {
 } from "./helpers";
 import { IUser } from "interfaces/UserInterface";
 import UserLinks from "./UserLinks";
+import { useNavigate } from "react-router-dom";
 function Navbar() {
   const [user, setUser] = useState<IUser>();
   const [signInOpen, setSignInOpen] = useState<boolean>();
   const [signUpOpen, setSignUpOpen] = useState<boolean>();
+  const navigate = useNavigate();
 
   store.subscribe(() =>
     setSignInOpen(store.getState().rootReducer.signInModal.open)
@@ -52,7 +54,7 @@ function Navbar() {
     <div className="navbar">
       <div className="navbar-links">
         <div className="navbar-links_left">
-          <a>Home</a>
+          <a onClick={() => navigate("/")}>Home</a>
           <a>About</a>
         </div>
         <div className="navbar-links_right">
