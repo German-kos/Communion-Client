@@ -7,15 +7,12 @@ import MyProfileUserDisplay from "../my_profile_user_display/MyProfileUserDispla
 import Divider from "@mui/material/Divider";
 import { DividerStyle } from "presets/mui_profile_divider_presets/mui_divider_profile_divider_pc";
 import MyProfileUserInformation from "../my_profile_user_information/MyProfileUserInformation";
+//
 function MyProfileContainer() {
   const [user, setUser] = useState<IUserDetails>();
   const userJson = localStorage.getItem("currentUser");
   let username: string;
   if (userJson) username = JSON.parse(userJson).username;
-
-  //
-
-  //
 
   useEffect(() => {
     axios({

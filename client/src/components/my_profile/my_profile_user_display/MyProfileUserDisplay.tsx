@@ -103,6 +103,7 @@ function MyProfileUserDisplay({ user }: any) {
             />
             <label htmlFor="file">
               <ChangeCircleIcon
+                className="my_profile_change_pfp"
                 sx={{ color: "white", height: "40px", width: "40px" }}
               />
             </label>

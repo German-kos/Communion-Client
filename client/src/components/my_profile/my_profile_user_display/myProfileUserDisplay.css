@@ -26,10 +26,18 @@
 input[type="file"] {
   display: none;
 }
+
 label {
   transition: all 0.2s ease-in-out;
 }
 label:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.my_profile_change_pfp {
+  transition: all 0.2s ease-in-out;
+}
+.my_profile_change_pfp:hover {
+  color: #66fcf1;
 }
