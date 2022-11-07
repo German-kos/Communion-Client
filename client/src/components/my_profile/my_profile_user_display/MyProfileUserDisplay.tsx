@@ -84,32 +84,7 @@ function MyProfileUserDisplay({ user }: any) {
       }
 
       console.log(formData);
-      // axios.post(
-      //   "https://localhost:7066/api/account/upload-pfp-test",
-      //   formData
-      // );
     }
-    // event.preventDefault();
-    // console.log(event.target.files?.item(0));
-    // const userJson = localStorage.getItem("currentUser");
-    // if (userJson) {
-    //   let currentUser = JSON.parse(userJson);
-    //   // console.log(currentUser);
-    //   let file = event.target.files?.item(0);
-    //   let formdata = new FormData();
-    //   if (file) {
-    //     formdata.append("File", file);
-    //     formdata.append("Username", currentUser.username);
-    //     await axios({
-    //       method: "post",
-    //       url: "https://localhost:7066/api/account/upload-pfp-test",
-    //       data: formdata,
-    //       headers: { "Content-Type": "multipart/form-data" },
-    //     }).catch((error) => {
-    //       console.log(error);
-    //     });
-    //   }
-    // }
   };
   return (
     <div className="my_profile_user_display">
