@@ -1,6 +1,7 @@
 import "components/common/input/input.css";
 import { IInputComponent } from "interfaces/InputComponentInterface";
 import "components/sign_in_form/signInForm.css";
+import { inputPcPresetTest } from "presets/custom_input_presets/input_pc_test";
 
 function Input({ preset, placeholder, name }: IInputComponent) {
   return (
@@ -8,11 +9,7 @@ function Input({ preset, placeholder, name }: IInputComponent) {
       className="customInput"
       name={name}
       placeholder={placeholder}
-      style={{
-        width: preset.width.toString() + "px",
-        fontSize: preset.fontSize.toString() + "px",
-        paddingLeft: preset.paddingLeft.toString() + "px",
-      }}
+      style={preset}
     />
   );
 }
