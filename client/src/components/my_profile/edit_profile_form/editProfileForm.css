@@ -1,3 +1,14 @@
 h1 {
   color: white;
 }
+.edit_form_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.date_picker {
+  width: 250px;
+  padding: 8px;
+}
