@@ -1,17 +1,18 @@
 import { IInputComponent } from "interfaces/InputComponentInterface";
 import React from "react";
+import "components/common/input/input.css";
 
-function SelectCountry({ preset, placeholder, name }: any) {
+function SelectCountry({ preset, placeholder, name }: IInputComponent) {
   return (
     <>
       <select
         id="country"
         name={name}
-        className="form-control"
+        className="customInput"
         placeholder={placeholder}
         style={preset}
       >
-        <option value="" placeholder="Select Country">
+        <option value="Not specified" placeholder="Select Country">
           Select Country...
         </option>
         <option value="Afghanistan">Afghanistan</option>
