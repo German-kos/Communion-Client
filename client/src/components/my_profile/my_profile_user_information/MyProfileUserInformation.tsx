@@ -15,12 +15,9 @@ function MyProfileUserInformation({ user }: any) {
   if (user !== undefined)
     return (
       <div className="profile_user_information">
-        <IconButton className="my_profile_edit">
+        <IconButton onClick={handleOpenEditProfile} className="my_profile_edit">
           {/* add tooltip to edit button */}
-          <EditIcon
-            onClick={() => handleOpenEditProfile()}
-            className="my_profile_edit_button"
-          />
+          <EditIcon className="my_profile_edit_button" />
         </IconButton>
         <div>
           Gender: <p>{user?.Gender ? user.Gender : ns}</p>
