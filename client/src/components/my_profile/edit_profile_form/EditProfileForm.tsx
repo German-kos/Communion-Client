@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "components/my_profile/edit_profile_form/editProfileForm.css";
-import Input from "components/common/input/Input";
 import { inputPcPreset } from "presets/custom_input_presets/input_pc";
 import SelectCountry from "components/common/select_country/SelectCountry";
-import { inputPcPresetTest } from "presets/custom_input_presets/input_pc_test";
 import SelectGender from "components/common/select_gender/SelectGender";
 import TextArea from "components/common/text_area/TextArea";
 import { textAreaPcPreset } from "presets/custom_text_area_presets/text_area_pc";
 import "react-datepicker/dist/react-datepicker.css";
 //
 import DatePicker from "react-datepicker";
+import OutlinedButton from "components/common/button/outlined_button/OutlinedButton";
+import { buttonPcPreset } from "presets/custom_button_presets/button_pc";
 //
 function EditProfileForm() {
   const [startDate, setStartDate] = useState(null);
@@ -57,6 +57,11 @@ function EditProfileForm() {
             rows={5}
             name="Bio"
             key="Bio"
+          />
+          <OutlinedButton
+            text="Finish Editing"
+            preset={buttonPcPreset}
+            type="submit"
           />
         </div>
       </form>
