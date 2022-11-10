@@ -6,6 +6,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
 .date_picker {

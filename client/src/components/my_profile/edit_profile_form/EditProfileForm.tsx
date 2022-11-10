@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import OutlinedButton from "components/common/button/outlined_button/OutlinedButton";
 import { buttonPcPreset } from "presets/custom_button_presets/button_pc";
+import { IEditProfile } from "interfaces/EditProfileInterface";
 //
 function EditProfileForm() {
   const [startDate, setStartDate] = useState(null);
@@ -17,7 +18,12 @@ function EditProfileForm() {
   const [dateSelected, setDateSelected] = useState<boolean>(false);
   const submitForm = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log(event.target);
+    const formData = event.target as typeof event.target & IEditProfile;
+    //
+    console.log(formData.DateOfBirth.value.toString() === ""); // true when empty
+    console.log(formData.Country.value);
+    console.log(formData.Gender.value);
+    console.log(formData.Bio.value === ""); // true when empty
   };
 
   return (
@@ -25,7 +31,6 @@ function EditProfileForm() {
       <form onSubmit={submitForm}>
         <div className="edit_form_container">
           <h1>EDIT PROFILE</h1>
-
           <DatePicker
             className="customInput date_picker"
             placeholderText="Date of Birth"
@@ -39,6 +44,7 @@ function EditProfileForm() {
             isClearable
             showYearDropdown
             scrollableMonthYearDropdown
+            name="DateOfBirth"
           />
           <SelectCountry
             preset={inputPcPreset}
@@ -59,7 +65,7 @@ function EditProfileForm() {
             key="Bio"
           />
           <OutlinedButton
-            text="Finish Editing"
+            text="Submit Changes"
             preset={buttonPcPreset}
             type="submit"
           />

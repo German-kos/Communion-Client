@@ -1,10 +1,9 @@
 import React from "react";
 import "components/common/input/input.css";
 import { IInputComponent } from "interfaces/InputComponentInterface";
+import { genderSelections } from "presets/gender_select_presets/gender_select_presets";
 
 function SelectGender({ preset, placeholder, name }: IInputComponent) {
-  const genderSelect = ["Male", "Female", "Other", "Not specified"];
-
   return (
     <>
       <select
@@ -17,10 +16,18 @@ function SelectGender({ preset, placeholder, name }: IInputComponent) {
         <option value="Not specified" placeholder="Select Gender">
           Select Gender...
         </option>
-        {genderSelect.map((gender) => {
+        {genderSelections.map((gender) => {
           if (gender === "Not Specified")
-            return <option value={gender}>I'd rather not specify</option>;
-          return <option value={gender}>{gender}</option>;
+            return (
+              <option value={gender} key={gender}>
+                I'd rather not specify
+              </option>
+            );
+          return (
+            <option value={gender} key={gender}>
+              {gender}
+            </option>
+          );
         })}
       </select>
     </>

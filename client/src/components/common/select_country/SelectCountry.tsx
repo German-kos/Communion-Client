@@ -11,10 +11,12 @@ function SelectCountry({ preset, placeholder, name }: IInputComponent) {
         className="customInput"
         placeholder={placeholder}
         style={preset}
+        defaultValue={"Not specified"}
       >
-        <option value="Not specified" placeholder="Select Country">
+        <option disabled value="Not specified" placeholder="Select Country">
           Select Country...
         </option>
+        <option value="Not specified">I'd rather not specify</option>
         <option value="Afghanistan">Afghanistan</option>
         <option value="Åland Islands">Åland Islands</option>
         <option value="Albania">Albania</option>
