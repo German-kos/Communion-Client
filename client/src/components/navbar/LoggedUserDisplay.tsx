@@ -19,6 +19,7 @@ const LoggedUserDisplay = ({ username, pfp }: any) => {
   };
   const signOut = () => {
     signOutUser();
+    navigate("/");
     setAnchorEl(null);
   };
 
@@ -51,7 +52,7 @@ const LoggedUserDisplay = ({ username, pfp }: any) => {
         <MenuItem
           onClick={() =>
             // later redirect to a seperate component named MyProfile, where the user can edit their account
-            navigate(`/myprofile`, {})
+            navigate(`/myprofile`)
           }
         >
           Profile
