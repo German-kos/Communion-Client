@@ -10,9 +10,14 @@ import MyProfileUserInformation from "../my_profile_user_information/MyProfileUs
 //
 function MyProfileContainer() {
   const [user, setUser] = useState<IUserDetails>();
+  const [editUpdate, setEditUpdate] = useState<boolean>();
   const userJson = localStorage.getItem("currentUser");
   let username: string;
   if (userJson) username = JSON.parse(userJson).username;
+
+  store.subscribe(() =>
+    setEditUpdate(store.getState().rootReducer.editProfileModal.open)
+  );
 
   useEffect(() => {
     axios({
@@ -36,7 +41,7 @@ function MyProfileContainer() {
         RegistrationDate: response.data.registrationDate,
       });
     });
-  }, []);
+  }, [editUpdate]);
   return (
     <div className="my_profile_container">
       <MyProfileUserDisplay user={user} />

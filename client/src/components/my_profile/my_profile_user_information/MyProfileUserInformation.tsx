@@ -1,6 +1,5 @@
 import { IconButton } from "@mui/material";
 import { formatDate } from "helpers/format_date";
-import React from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import "components/my_profile/my_profile_user_information/myProfileUserInformation.css";
 import store from "redux/store";

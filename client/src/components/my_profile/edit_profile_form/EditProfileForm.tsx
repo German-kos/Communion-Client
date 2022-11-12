@@ -13,6 +13,8 @@ import { buttonPcPreset } from "presets/custom_button_presets/button_pc";
 import { IEditProfile } from "interfaces/EditProfileInterface";
 import axios from "axios";
 import { getToken } from "helpers/get_token";
+import store from "redux/store";
+import { closeEditProfile } from "redux/slices/EditProfileModalSlice";
 //
 function EditProfileForm() {
   const [startDate, setStartDate] = useState(null);
@@ -43,6 +45,7 @@ function EditProfileForm() {
     })
       .then((response) => {
         console.log(response.data);
+        store.dispatch(closeEditProfile());
       })
       .catch((error) => {
         console.log(error.response.data);
