@@ -11,6 +11,8 @@ import DatePicker from "react-datepicker";
 import OutlinedButton from "components/common/button/outlined_button/OutlinedButton";
 import { buttonPcPreset } from "presets/custom_button_presets/button_pc";
 import { IEditProfile } from "interfaces/EditProfileInterface";
+import axios from "axios";
+import { getToken } from "helpers/get_token";
 //
 function EditProfileForm() {
   const [startDate, setStartDate] = useState(null);
@@ -24,6 +26,27 @@ function EditProfileForm() {
     console.log(formData.Country.value);
     console.log(formData.Gender.value);
     console.log(formData.Bio.value === ""); // true when empty
+    // const token = getToken();
+    await axios({
+      method: "patch",
+      url: "https://localhost:7066/api/account/edit-profile",
+      headers: {
+        Authorization: `bearer ${getToken()}`,
+        "Content-Type": "application/json",
+      },
+      data: {
+        DateOfBirth: formData.DateOfBirth.value,
+        Country: formData.Country.value,
+        Gender: formData.Gender.value,
+        Bio: formData.Bio.value,
+      },
+    })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
 
   return (
