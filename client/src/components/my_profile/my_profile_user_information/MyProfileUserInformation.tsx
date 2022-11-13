@@ -34,9 +34,9 @@ function MyProfileUserInformation({ user }: any) {
           Country:
           <p>{user.Country ? user.Country : ns}</p>
         </div>
-        <div>
+        <div className="my_profile_bio_container">
           Bio:
-          <p>{user.Bio ? user.Bio : ns}</p>
+          <p className="my_profile_bio">{user.Bio ? user.Bio : ns}</p>
         </div>
       </div>
     );
